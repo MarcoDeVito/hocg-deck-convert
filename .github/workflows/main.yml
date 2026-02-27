@@ -26,11 +26,11 @@ jobs:
 
       - name: Build site
         run: dx build --release
-        
-          - name: List output directories
+
+      - name: List output directories
         run: |
           ls -la
-          find . -maxdepth 4 -type d -name "dist" -o -name "public" -o -name "build" -o -name "out" -o -name "target"
+          find . -maxdepth 4 -type d \( -name "dist" -o -name "public" -o -name "build" -o -name "out" -o -name "target" \) -print
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
